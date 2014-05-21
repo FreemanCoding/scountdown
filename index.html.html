@@ -1,0 +1,60 @@
+<html>
+<head><title>School-Day Countdown</title></head>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 id="topCount"; style="font-family:Fantasy"; align="center">School will be over in:</h1>
+<h2 id="countDown"; align=center>School hasn't started yet</h2>
+
+<script>
+window.setInterval(function(){
+var currentTime = new Date()
+var hours = currentTime.getHours()
+var minutes = currentTime.getMinutes()
+var suffix = "AM"
+var seconds = currentTime.getSeconds();
+var seconds = 60 - seconds;
+
+if (hours >= 12){
+suffix = "PM"
+}
+
+if (minutes < 10){
+minutes = "0" + minutes
+}
+
+if (suffix == "AM"){
+var hourLeft = 12 - hours; 
+var hourLeft = hourLeft + 3;
+if (minutes >= 55) {
+hourLeft = hours - 1;
+minutes = minutes - 60;
+}
+
+else {
+minLeft = 55 - minutes
+}
+document.getElementById("topCount").innerHTML="School will be over in:";
+document.getElementById("countDown").innerHTML= hourLeft + " hours, " + minLeft + " minutes, and " + seconds + " seconds";
+}
+
+else {
+var hourLeft = 15 - hours;
+if (minutes >= 55) {
+hourLeft = hourLeft - 1;
+minLeft = 60 - minutes;
+}
+else {
+minLeft = 55 - minutes;
+}
+document.getElementById("topCount").innerHTML="School will be over in:";
+document.getElementById("countDown").innerHTML= hourLeft + " hours, " + minLeft + " minutes, and " + seconds + " seconds";
+}}, 50);
+</script>
